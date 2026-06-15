@@ -46,6 +46,7 @@ const themeScript = `
 `;
 
 export const Route = createRootRoute({
+	ssr: false,
 	head: () => ({
 		meta: [
 			{
@@ -122,8 +123,6 @@ export const Route = createRootRoute({
 
 	// Shell is always server-rendered for HTML structure
 	shellComponent: RootShell,
-	// Component and children are client-rendered
-	ssr: false,
 	component: RootComponent,
 	notFoundComponent: NotFoundPage,
 });

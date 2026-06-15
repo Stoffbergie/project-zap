@@ -50,10 +50,9 @@ export function TodoItem({
 			await uploadAttachment(todoId, file);
 		} catch (error) {
 			console.error("Failed to upload file:", error);
-		} finally {
-			setIsUploading(false);
-			if (fileInputRef.current) fileInputRef.current.value = "";
 		}
+		setIsUploading(false);
+		if (fileInputRef.current) fileInputRef.current.value = "";
 	};
 
 	const overdue = dueDate && !completed && isOverdue(dueDate);

@@ -13,6 +13,8 @@ if (!CONVEX_URL) {
 const convex = new ConvexReactClient(CONVEX_URL);
 
 function useAuthFromWorkOS() {
+	"use no memo";
+
 	const { user, loading: isLoading } = useAuth();
 	const { getAccessToken } = useAccessToken();
 
@@ -44,6 +46,8 @@ export default function ConvexClientProvider({
 }: {
 	children: ReactNode;
 }) {
+	"use no memo";
+
 	return (
 		<ConvexProviderWithAuth client={convex} useAuth={useAuthFromWorkOS}>
 			{children}

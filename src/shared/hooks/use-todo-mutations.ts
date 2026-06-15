@@ -3,6 +3,8 @@ import { api } from "../../../convex/_generated/api";
 import type { Id } from "../../../convex/_generated/dataModel";
 
 export function useTodoMutations() {
+	"use no memo";
+
 	const toggleMutation = useMutation(api.todos.toggle).withOptimisticUpdate(
 		(localStore, args) => {
 			const todos = localStore.getQuery(api.todos.list, {});

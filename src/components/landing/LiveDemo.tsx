@@ -5,6 +5,8 @@ import { api } from "../../../convex/_generated/api";
 import type { Id } from "../../../convex/_generated/dataModel";
 
 export function LiveDemo() {
+	"use no memo";
+
 	return (
 		<section id="demo" className="py-24 px-6 bg-muted text-foreground">
 			<div className="mx-auto max-w-7xl">

@@ -75,6 +75,7 @@ export function Combobox({
 	contentClassName,
 }: ComboboxProps) {
 	const [open, setOpen] = React.useState(false);
+	const listboxId = React.useId();
 
 	const selectedOption = options.find((option) => option.value === value);
 
@@ -95,6 +96,7 @@ export function Combobox({
 					variant="outline"
 					role="combobox"
 					aria-expanded={open}
+					aria-controls={listboxId}
 					disabled={disabled}
 					className={cn(
 						"w-full justify-between font-normal",
@@ -124,7 +126,7 @@ export function Combobox({
 			>
 				<Command>
 					<CommandInput placeholder={searchPlaceholder} />
-					<CommandList>
+					<CommandList id={listboxId}>
 						<CommandEmpty>{emptyText}</CommandEmpty>
 						<CommandGroup>
 							{options.map((option) => (
@@ -198,6 +200,7 @@ export function MultiCombobox({
 	className,
 }: MultiComboboxProps) {
 	const [open, setOpen] = React.useState(false);
+	const listboxId = React.useId();
 
 	const selectedOptions = options.filter((option) =>
 		value.includes(option.value),
@@ -231,6 +234,7 @@ export function MultiCombobox({
 					variant="outline"
 					role="combobox"
 					aria-expanded={open}
+					aria-controls={listboxId}
 					disabled={disabled}
 					className={cn(
 						"w-full justify-between font-normal min-h-10 h-auto",
@@ -262,7 +266,7 @@ export function MultiCombobox({
 			<PopoverContent className="w-[--radix-popover-trigger-width] p-0">
 				<Command>
 					<CommandInput placeholder={searchPlaceholder} />
-					<CommandList>
+					<CommandList id={listboxId}>
 						<CommandEmpty>{emptyText}</CommandEmpty>
 						<CommandGroup>
 							{options.map((option) => {
@@ -277,6 +281,7 @@ export function MultiCombobox({
 										value={option.value}
 										onSelect={handleSelect}
 										disabled={option.disabled || isMaxed}
+										aria-selected={isSelected}
 									>
 										<div
 											className={cn(

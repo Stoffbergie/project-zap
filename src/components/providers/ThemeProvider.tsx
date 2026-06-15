@@ -52,6 +52,8 @@ function updateThemeColor(theme: "light" | "dark") {
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
+	"use no memo";
+
 	const [theme, setThemeState] = useState<Theme>("light");
 	const [resolvedTheme, setResolvedTheme] = useState<"light" | "dark">("light");
 	const [mounted, setMounted] = useState(false);

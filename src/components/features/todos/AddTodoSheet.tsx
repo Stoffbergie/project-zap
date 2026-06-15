@@ -42,9 +42,8 @@ export function AddTodoSheet() {
 		} catch (err) {
 			console.error("Failed to add todo:", err);
 			setError("Failed to add todo. Please try again.");
-		} finally {
-			setIsLoading(false);
 		}
+		setIsLoading(false);
 	};
 
 	const handleOpenChange = (newOpen: boolean) => {

@@ -67,11 +67,8 @@ function ProfileSettingsPage() {
 
 	const handleSave = async () => {
 		setIsSaving(true);
-		try {
-			await updateProfile({ name: name.trim() || undefined });
-		} finally {
-			setIsSaving(false);
-		}
+		await updateProfile({ name: name.trim() || undefined });
+		setIsSaving(false);
 	};
 
 	return (

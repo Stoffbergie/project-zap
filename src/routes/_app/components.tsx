@@ -144,9 +144,8 @@ function EditUserDialog({
 			onOpenChange(false);
 		} catch (error) {
 			console.error("Failed to update user:", error);
-		} finally {
-			setIsSubmitting(false);
 		}
+		setIsSubmitting(false);
 	};
 
 	return (
@@ -254,9 +253,8 @@ function UserActionsCell({ user }: { user: Doc<"demoUsers"> }) {
 			await removeUser({ id: user._id });
 		} catch (error) {
 			console.error("Failed to delete user:", error);
-		} finally {
-			setIsDeleting(false);
 		}
+		setIsDeleting(false);
 	};
 
 	return (
@@ -364,11 +362,8 @@ function ComponentsPage() {
 
 	const handleSeed = async () => {
 		setIsSeeding(true);
-		try {
-			await seedUsers({});
-		} finally {
-			setIsSeeding(false);
-		}
+		await seedUsers({});
+		setIsSeeding(false);
 	};
 
 	const handleClear = async () => {

@@ -27,9 +27,8 @@ export function AddTodoForm() {
 			setDueDate(undefined);
 		} catch (error) {
 			console.error("Failed to add todo:", error);
-		} finally {
-			setIsLoading(false);
 		}
+		setIsLoading(false);
 	};
 
 	return (
