@@ -23,7 +23,6 @@ pnpm-lock.yaml
 .DS_Store
 count.txt
 todos.json
-convex/_generated/
 src/routeTree.gen.ts
 .vercel
 .env*.local
